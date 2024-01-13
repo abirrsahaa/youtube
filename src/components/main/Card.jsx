@@ -1,15 +1,21 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Card = ({ data }) => {
-  // console.table(data);
+  console.table(data);
   const { channelTitle, title } = data?.snippet;
   const { viewCount } = data?.statistics;
   const thumbnails = data?.snippet.thumbnails.high.url;
   const side = useSelector((store) => store.side.open);
+  const { id } = data;
+  const navigate = useNavigate();
   // console.table(thumbnails, channelTitle, title, viewCount);
   return side ? (
-    <div className="w-[32%] h-[45%]  flex flex-col justify-center gap-2 shadow-2xl rounded-xl">
+    <div
+      onClick={() => navigate("/" + id)}
+      className="w-[32%] h-[45%] cursor-pointer  flex flex-col justify-center gap-2 shadow-2xl rounded-xl"
+    >
       <div className="w-full rounded-t-lg h-[75%] object-fit overflow-hidden">
         <img
           src={thumbnails}

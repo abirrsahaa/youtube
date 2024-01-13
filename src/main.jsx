@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import Watchpage from "./pages/Watchpage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,10 +17,10 @@ const router = createBrowserRouter([
         path: "",
         element: <Home />,
       },
-      // {
-      //   path:":id",
-      //   element:<WatchPage/>
-      // }
+      {
+        path: ":id",
+        element: <Watchpage />,
+      },
     ],
   },
 ]);
