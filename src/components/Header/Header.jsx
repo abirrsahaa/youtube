@@ -9,9 +9,11 @@ import { toggleSide } from "../../store/sideSlice";
 import { GoHistory } from "react-icons/go";
 
 import { setSearch } from "../../store/SearchSlice";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [search, setsearch] = useState("");
   const [searchdata, setsearchdata] = useState([]);
   console.log("Search Data set: ", searchdata);
@@ -60,7 +62,10 @@ const Header = () => {
                 <RxHamburgerMenu className="h-full w-full" />
               </div>
             </div>
-            <div className="w-[75%] h-full  object-fit flex justify-center items-center overflow-hidden">
+            <div
+              className="w-[75%] h-full  object-fit flex justify-center cursor-pointer items-center overflow-hidden"
+              onClick={() => navigate("/")}
+            >
               <img
                 alt="youtube"
                 src="https://images.indianexpress.com/2017/08/youtube_logo_new-759.jpg"
