@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 
 function App() {
   return (
-    <div className="h-[100vh] w-[100vw]">
+    <div className="h-[100vh] w-[100vw] overflow-y-scroll">
       <Header />
       <Outlet />
     </div>

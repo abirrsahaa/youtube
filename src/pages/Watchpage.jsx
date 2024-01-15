@@ -9,6 +9,7 @@ import { PiShareFatLight } from "react-icons/pi";
 import { RxDotsHorizontal } from "react-icons/rx";
 import { BiSolidBellRing } from "react-icons/bi";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import CommentWrapper from "../components/CommentWrapper";
 
 const Watchpage = () => {
   const { id } = useParams();
@@ -16,6 +17,85 @@ const Watchpage = () => {
   const [channelInfo, setchannelInfo] = useState({});
   // console.log("length", channelInfo.length);
   // channel info
+
+  const commentsData = [
+    {
+      name: "Akshay Saini",
+      text: "Lorem ipsum dolor sit amet, consectetur adip",
+      replies: [],
+    },
+    {
+      name: "Akshay Saini",
+      text: "Lorem ipsum dolor sit amet, consectetur adip",
+      replies: [
+        {
+          name: "Akshay Saini",
+          text: "Lorem ipsum dolor sit amet, consectetur adip",
+          replies: [],
+        },
+        {
+          name: "Akshay Saini",
+          text: "Lorem ipsum dolor sit amet, consectetur adip",
+          replies: [
+            {
+              name: "Akshay Saini",
+              text: "Lorem ipsum dolor sit amet, consectetur adip",
+              replies: [
+                {
+                  name: "Akshay Saini",
+                  text: "Lorem ipsum dolor sit amet, consectetur adip",
+                  replies: [
+                    {
+                      name: "Akshay Saini",
+                      text: "Lorem ipsum dolor sit amet, consectetur adip",
+                      replies: [
+                        {
+                          name: "Akshay Saini",
+                          text: "Lorem ipsum dolor sit amet, consectetur adip",
+                          replies: [],
+                        },
+                      ],
+                    },
+                    {
+                      name: "Akshay Saini",
+                      text: "Lorem ipsum dolor sit amet, consectetur adip",
+                      replies: [],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Akshay Saini",
+      text: "Lorem ipsum dolor sit amet, consectetur adip",
+      replies: [],
+    },
+    {
+      name: "Akshay Saini",
+      text: "Lorem ipsum dolor sit amet, consectetur adip",
+      replies: [],
+    },
+    {
+      name: "Akshay Saini",
+      text: "Lorem ipsum dolor sit amet, consectetur adip",
+      replies: [],
+    },
+    {
+      name: "Akshay Saini",
+      text: "Lorem ipsum dolor sit amet, consectetur adip",
+      replies: [],
+    },
+  ];
+
+  // this is the comments data that i will be using to create the n level nesting comments section in the watch page
+
+  // first lets start with building the main comments for that i need a comment card component
+  // the comment card component will be the one to be rendered for each comment in the comments data array by mapping
+  // we will be using a comment component to pass the data which will just be providing the container or wrapper type function
 
   // video info
 
@@ -48,8 +128,8 @@ const Watchpage = () => {
   }, []);
 
   return (
-    <div className="w-full h-full  flex justify-center items-center gap-2">
-      <div className="w-[68%] h-full  mt-2 ">
+    <div className="w-full h-full  flex justify-center items-center gap-2 overflow-y-scroll">
+      <div className="w-[68%] h-full  mt-2 border-2 border-black border-solid overflow-y-scroll flex flex-col items-center justify-center gap-2">
         <div className="w-full   h-[72%] rounded-lg">
           <iframe
             className="w-full h-full rounded-lg"
@@ -132,6 +212,9 @@ const Watchpage = () => {
             </div>
           </div>
         )}
+        <div className="border-2  border-black border-solid mt-4 w-[90%]">
+          <CommentWrapper commentsData={commentsData} />
+        </div>
       </div>
       <div className="w-[28%] h-full border-black border-2 border-solid flex"></div>
     </div>
